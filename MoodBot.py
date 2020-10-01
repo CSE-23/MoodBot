@@ -16,7 +16,18 @@ async def on_ready():
 #help command
 @bot.command(name = "help")
 async def help(ctx):
-    await ctx.channel.send("command prefix: /\ncommands:\nascii")
+
+    embed = discord.Embed(
+        title = "Help: Command Prefix '/'",
+        colour = discord.Colour.from_rgb(0,255,255),
+        url = "https://github.com/CSE-23",
+        description = "lists all possible commands")
+    
+    embed.add_field(name="help", value="displays this message", inline=False)
+    embed.add_field(name="ascii <text>", value="converts your text to ascii art", inline=False)
+
+    await ctx.channel.send(embed = embed)
+
 
 #ascii command
 @bot.command(name = "ascii")
